@@ -17,23 +17,24 @@ class EssayBase():
   def _create_table(self):
     sql_create_table = """CREATE TABLE essays
       (
-        Title TEXT,
-        Doi TEXT,
-        Conference TEXT,
-        Section TEXT,
-        Year NUMBER,
-        Author TEXT,
-        Abstract TEXT,
-        Keywords TEXT,
-        Interest NUMBER,
-        Other TEXT
+        Title TEXT NOT NULL,
+        Doi TEXT NOT NULL,
+        Conference TEXT NOT NULL,
+        Section TEXT NOT NULL,
+        Year NUMBER NOT NULL DEFAULT 0,
+        Author TEXT NOT NULL,
+        Abstract TEXT NOT NULL,
+        Keywords TEXT NOT NULL,
+        Interest NUMBER NOT NULL DEFAULT 0,
+        Other TEXT NOT NULL,
+        Date TEXT NOT NULL DEFAULT 0
       );"""
     try:
       self.cursor.execute(sql_create_table)
     except:
       pass
 
-  def insert(self,title="",doi="",conference="",section="",year=0,author="",abstract="",keywords="",interest=0,other=""):
+  def insert(self,title="",doi="",conference="",section="",year=0,author="",abstract="",keywords="",interest=0,other="",date="0"):
     title = re.sub("[\"]","\'",title)
     conference = re.sub("[\"]","\'",conference)
     section = re.sub("[\"]","\'",section)
@@ -52,8 +53,8 @@ class EssayBase():
     else:
       sql_insert = """INSERT INTO essays VALUES
       (
-        "%s","%s","%s","%s",%d,"%s","%s","%s",%d,"%s"
-      );"""%(title,doi,conference,section,year,author,abstract,keywords,interest,other)
+        "%s","%s","%s","%s",%d,"%s","%s","%s",%d,"%s","%s"
+      );"""%(title,doi,conference,section,year,author,abstract,keywords,interest,other,date)
       self.cursor.execute(sql_insert)
     if self.insert_count%self.insert_duration==0:
       self.database.commit()

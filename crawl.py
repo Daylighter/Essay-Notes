@@ -33,7 +33,7 @@ def main():
           try:
             paperInfo = getInfo(paperUrl,browser)
             database.insert(title=paperInfo["title"],doi=paperInfo["doi"],conference=conferenceUrl["title"],section=sectionUrl["title"],\
-              year=paperInfo["year"],author=paperInfo["author"],abstract=paperInfo["abstract"],keywords=paperInfo["keywords"],interest=0,other="")
+              year=paperInfo["year"],author=paperInfo["author"],abstract=paperInfo["abstract"],keywords=paperInfo["keywords"],interest=0,other="",date="0")
           except Exception as e:
             print(e)
             print("Insertion failed.")
