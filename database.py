@@ -15,26 +15,25 @@ class EssayBase():
     return [database,cur]
 
   def _create_table(self):
-    sql_create_table = """CREATE TABLE essays
-      (
-        Title TEXT NOT NULL,
-        Doi TEXT NOT NULL,
-        Conference TEXT NOT NULL,
-        Section TEXT NOT NULL,
-        Year NUMBER NOT NULL DEFAULT 0,
-        Author TEXT NOT NULL,
-        Abstract TEXT NOT NULL,
-        Keywords TEXT NOT NULL,
-        Interest NUMBER NOT NULL DEFAULT 0,
-        Other TEXT NOT NULL,
-        Date TEXT NOT NULL DEFAULT 0
-      );"""
+    sql_create_table = """CREATE TABLE "essays" (
+      "Title"	TEXT NOT NULL,
+      "Url"	TEXT NOT NULL,
+      "Abstract"	TEXT NOT NULL,
+      "Keywords"	TEXT NOT NULL,
+      "Date"	TEXT NOT NULL DEFAULT 0,
+      "Doi"	TEXT NOT NULL,
+      "Conference"	TEXT NOT NULL,
+      "Section"	TEXT NOT NULL,
+      "Year"	NUMBER NOT NULL DEFAULT 0,
+      "Author"	TEXT NOT NULL,
+      "Interest"	NUMBER NOT NULL DEFAULT 0
+    );"""
     try:
       self.cursor.execute(sql_create_table)
     except:
       pass
 
-  def insert(self,title="",doi="",conference="",section="",year=0,author="",abstract="",keywords="",interest=0,other="",date="0"):
+  def insert(self,title="",url="",abstract="",keywords="",date="0",doi="",conference="",section="",year=0,author="",interest=0):
     title = re.sub("[\"]","\'",title)
     conference = re.sub("[\"]","\'",conference)
     section = re.sub("[\"]","\'",section)
@@ -45,16 +44,16 @@ class EssayBase():
     search_result = self.search(identifier)
     if len(search_result)>0:
       original = search_result[0]
-      if original[1]=="":self.update(identifier,"Doi = \"%s\""%(doi))
-      if original[4]==0:self.update(identifier,"Year = %d"%(year))
-      if original[5]=="":self.update(identifier,"Author = \"%s\""%(author))
-      if original[6]=="":self.update(identifier,"Abstract = \"%s\""%(abstract))
-      if original[7]=="":self.update(identifier,"Keywords = \"%s\""%(keywords))
+      if original[5]=="":self.update(identifier,"Doi = \"%s\""%(doi))
+      if original[8]==0:self.update(identifier,"Year = %d"%(year))
+      if original[9]=="":self.update(identifier,"Author = \"%s\""%(author))
+      if original[2]=="":self.update(identifier,"Abstract = \"%s\""%(abstract))
+      if original[3]=="":self.update(identifier,"Keywords = \"%s\""%(keywords))
     else:
       sql_insert = """INSERT INTO essays VALUES
       (
-        "%s","%s","%s","%s",%d,"%s","%s","%s",%d,"%s","%s"
-      );"""%(title,doi,conference,section,year,author,abstract,keywords,interest,other,date)
+        "%s","%s","%s","%s","%s","%s","%s","%s",%d,"%s",%d
+      );"""%(title,url,abstract,keywords,date,doi,conference,section,year,author,interest)
       self.cursor.execute(sql_insert)
     if self.insert_count%self.insert_duration==0:
       self.database.commit()
