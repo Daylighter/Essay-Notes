@@ -45,6 +45,8 @@ def main():
   elif operationType == "delete":
     deleteCondition = input("Condition to delete:")
     database.delete(deleteCondition)
+  else:
+    database.update("Section = 'neurips2020'","Section = 'nips2020'")
   database.finalize()
 
 main()
