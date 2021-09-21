@@ -2,9 +2,14 @@
 
 [APQ: Joint Search for Network Architecture, Pruning and Quantization Policy](https://arxiv.org/pdf/2006.08509.pdf)
 
+- [Code](https://github.com/mit-han-lab/apq)
+- [Video](https://youtu.be/s5v23hTe60s)
+
 - By optimizing the neural architecture, pruning policy, and quantization policy jointly through training a quantization-aware accuracy predictor with full-precision knowledge, APQ is presented for efficient deep learning inference on resource-constrained hardware.
 
 [HAT: Hardware-Aware Transformers for Efficient Natural Language Processing](https://arxiv.org/pdf/2005.14187.pdf)
+
+- [Code](https://github.com/mit-han-lab/hardware-aware-transformers.git)
 
 - By constructing a design space with arbitrary encoder-decoder attention and heterogeneous layers, training a SuperTransformer with weight sharing, and performing evolutionary search with hardware constraints, Hardware-Aware Transformers (HAT) enables low-latency inference on resource-constrained hardware platforms.
 

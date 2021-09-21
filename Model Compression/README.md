@@ -19,3 +19,4 @@
 [HAQ: Hardware-Aware Automated Quantization With Mixed Precision](https://arxiv.org/pdf/1811.08886.pdf)
 
 - By using reinforcement learning with the feedback from the hardware accelerator, Hardware-Aware Automated Quantization (HAQ) is fully automated and can specialize the quantization policy for different neural network architectures and hardware architectures.
+

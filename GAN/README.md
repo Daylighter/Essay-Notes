@@ -6,8 +6,13 @@
 
 [Differentiable Augmentation for Data-Efficient GAN Training](https://arxiv.org/pdf/2006.10738.pdf)
 
+- [Code](https://github.com/mit-han-lab/data-efficient-gans)
+
 - By imposing various types of differentiable augmentations on both real and fake samples, Differentiable Augmentation (DiffAugment) effectively stabilizes training, and leads to better convergence, thus improves the data efficiency of GANs
 
 [GAN Compression: Efficient Architectures for Interactive Conditional GANs](https://arxiv.org/pdf/2003.08936.pdf)
 
+- [Code](https://github.com/mit-han-lab/gan-compression)
+- [Video](https://www.youtube.com/playlist?list=PL80kAHvQbh-r5R8UmXhQK1ndqRvPNw_ex)
 - By transferring knowledge of multiple intermediate representations of the original model to its compressed model, unifying unpaired and paired learning, and finding efficient architectures via NAS with weight sharing, this paper's design reduces the inference time and model size of the generator in cGANs.
+

@@ -6,9 +6,13 @@
 
 [Lite Transformer with Long-Short Range Attention](https://arxiv.org/pdf/2004.11886.pdf)
 
+- [Code](https://github.com/mit-han-lab/lite-transformer)
+
 - By using Long-Short Range Attention (LSRA) with local context modeling (by convolution) and long-distance relationship modeling (by attention), together with pruning and quantization, Lite Transformer reduces the computation and compresses the model size to achieve high performance.
 
 [Once-for-All: Train One Network and Specialize it for Efficient Deployment](https://arxiv.org/pdf/1908.09791.pdf)
+
+- [Code](https://github.com/mit-han-lab/once-for-all)
 
 - By decoupling training of a OFA network and search with selection from the OFA network, and a progressive shrinking algorithm, this paper's design supports diverse architectural settings, reduces the model size, and obtains a large number of subnetworks to fit different hardware platforms and latency constraints with low accuracy loss.
 
